@@ -28,6 +28,6 @@ public class Usuario {
     @Column(name = "data_alteracao")
     private Date dataAlteracao;
 
-    @Column(name = "email", length = 255)
+    @Column(name = "email", length = 254)
     private String email;
 }
