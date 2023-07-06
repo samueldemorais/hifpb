@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Column;
 import jakarta.persistence.ManyToMany;
 import java.util.ArrayList;
 import jakarta.persistence.CascadeType;
@@ -13,14 +12,41 @@ import jakarta.persistence.CascadeType;
 public class Interprete {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public String id;
+    public Long id;
 
-    @Column()
     public String nome;
-  
-    @Column()
+ 
     public String cpf;
+
+    public String email;
+
+    public String idade;
     
 	@ManyToMany(mappedBy="interpretes", cascade= {CascadeType.PERSIST, CascadeType.MERGE})
     public ArrayList<Horario> horarios;
+
+    public Interprete() {
+        this.horarios = new ArrayList<>();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public String getCpf() {
+        return cpf;
+    }
+    public String getNome() {
+        return nome;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public String getIdade() {
+        return idade;
+    }
+
 }
